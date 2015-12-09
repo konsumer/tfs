@@ -1,0 +1,27 @@
+{
+  "name": "tfs",
+  "version": "0.0.1",
+  "description": "Simple cross-platform TFS client & nodejs library",
+  "main": "index.js",
+  "bin": {
+    "tfs": "./bin.js"
+  },
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-register": ""
+  },
+   "keywords": [
+    "tfs",
+    "node",
+    "npm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/konsumer/tfs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/konsumer/tfs/issues"
+  },
+  "homepage": "https://github.com/konsumer/tfs"
+}
