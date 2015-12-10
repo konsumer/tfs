@@ -5,7 +5,7 @@ const tfs_command = path.join(__dirname, 'TEE-CLC-14.0.1', 'tf')
 export default class Tfs {
   constructor(options) {
     this.optionsDefaults = options
-    [
+    this.commands = [
       'add',
       'branch',
       'branches',
@@ -21,7 +21,6 @@ export default class Tfs {
       'dir',
       'folderdiff',
       'get',
-      'help',
       'history',
       'info',
       'label',
@@ -49,7 +48,9 @@ export default class Tfs {
       'workfold',
       'workspace',
       'workspaces'
-    ].forEach((command) => {
+    ]
+    
+    this.commands.forEach((command) => {
       this[command] = (paths, params) => {
         return this.tfs(command, paths, Object.extend(this.optionsDefaults, params))
           .then(this.parse(command))
@@ -63,7 +64,7 @@ export default class Tfs {
       return output
     }
 
-    // TODO: put if's in here to make custom parsers of differnt commands
+    // TODO: put if's in here to make custom parsers of different commands
 
     return parser
   }

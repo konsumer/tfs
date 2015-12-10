@@ -28,7 +28,7 @@ tfs.get(['.'])
 
 ### ES5
 
-```
+```js
 var Tfs = require('tfs')
 
 var tfs = new Tfs({
@@ -104,9 +104,6 @@ tfs folderdiff  Display a visual representation of the differences between files
 tfs get         Retrieves a read-only copy of a file from Team Foundation
                Server to the workspace and creates folders on disk to contain
                it.
-
-tfs help        Displays a help topic to the command-line that contains detailed
-               information about a Team Foundation command.
 
 tfs history     Displays the revision history for one or more files and folders.
 
