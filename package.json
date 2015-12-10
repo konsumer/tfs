@@ -11,7 +11,7 @@
   "dependencies": {
     "babel-register": ""
   },
-   "keywords": [
+  "keywords": [
     "tfs",
     "node",
     "npm"
@@ -23,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/konsumer/tfs/issues"
   },
-  "homepage": "https://github.com/konsumer/tfs"
+  "homepage": "https://github.com/konsumer/tfs",
+  "devDependencies": {
+    "babel": "^6.3.13",
+    "babel-runtime": "^6.3.13",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "mocha-babel": "^3.0.0"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:mocha-babel test.js"
+  }
 }
