@@ -5,6 +5,7 @@ const tfs_command = path.join(__dirname, 'TEE-CLC-14.0.1', 'tf')
 export default class Tfs {
   constructor(options) {
     this.optionsDefaults = options
+    
     this.commands = [
       'add',
       'branch',
@@ -36,7 +37,7 @@ export default class Tfs {
       'reconcile',
       'rename',
       'resolve',
-      'tfs rollback',
+      'rollback',
       'shelve',
       'shelvesets',
       'status',
@@ -56,17 +57,17 @@ export default class Tfs {
           .then(this.parse(command))
       }
     })
+
+    this.parsers = {}
+
+
   }
 
   // return a parser for the command
   parse(command) {
-    var parser = (output) => {
+    return this.parsers[command] || (output) => {
       return output
     }
-
-    // TODO: put if's in here to make custom parsers of different commands
-
-    return parser
   }
 
   // run a tfs command
