@@ -1,4 +1,5 @@
 import path from 'path'
+import {exec} from 'child_process'
 
 const tfs_command = path.join(__dirname, 'TEE-CLC-14.0.1', 'tf')
 
@@ -73,7 +74,20 @@ export default class Tfs {
   // run a tfs command
   tfs(command, paths, options){
     return new Promise((resolve, reject) => {
-      console.log(command, paths, options)
+      if (typeof paths === 'string' ){
+        paths = [paths]
+      }
+      
+      const opts = Object.keys(options).map((o) => {
+        return `/${o}:${options[o]}`
+      })
+
+      // console.log(command, paths, options)
+      exec(`${command} ${paths.join(' ')} ${opts.join(' ')}`, (err, stdout, stderr) => {
+        if (err) return reject(err)
+        if (stderr) return reject(stderr)
+        resolve(stdout)
+      })
     })
   }
 }
